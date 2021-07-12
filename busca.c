@@ -5,14 +5,17 @@
 #include <stdio.h>
 
 int main() {
-    /* Testes com árvore B
     char string[15] = "(1(0)(3(2)(5))";
     int i = 0;
 
     t_no_B *arvoreB = montaArvoreB(string, &i);
-    emOrdemB(arvoreB);
-    printf("%d\n", valorIndexB(arvoreB));
-    */
+    i=0;
+    t_no_A *arvoreA = NULL;
+    arvoreA = inclusao(arvoreA, arvoreB);
+
+    emOrdemB(arvoreA->chave_arvore);
+    valorIndexB(arvoreA->chave_arvore);
+    printf("busca: %d\n", busca(arvoreA, arvoreB));
 
     return 0;
 }
