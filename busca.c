@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 int main() {
-    char string[15] = "(1(0)(3(2)(5))";
+    char string[15] = "(1(0)(3(2)(10))";
     int i = 0;
 
     t_no_B *arvoreB = montaArvoreB(string, &i);

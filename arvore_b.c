@@ -15,11 +15,17 @@ t_no_B *iniciaB(int valor) {
 
 t_no_B* montaArvoreB(char *str, int *i){
     t_no_B *no = NULL;
+    char aux[10];
+    int j = 0;
     
   if (str[*i] == '(') {
         (*i)++;
-        no = iniciaB(str[*i] - '0');    
-        (*i)++;
+        while ((str[*i] != ')') && (str[*i]) != '(') {
+            aux[j] = str[*i];
+            j++;
+            (*i)++;
+        }
+        no = iniciaB(atoi(aux));
         no -> esq = montaArvoreB(str, i);
         no -> dir = montaArvoreB(str, i);            
         (*i)++;
