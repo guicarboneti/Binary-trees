@@ -26,6 +26,7 @@ t_no_A * inclusao(t_no_A * noA, t_no_B * noB) {
         noA->dir = inclusao(noA->dir, noB);
         noA->dir->pai = noA;
     }
+    
     return noA;
 }
 
@@ -49,24 +50,21 @@ int busca(t_no_A *arvoreA, t_no_B *arvoreB) {
     return 0;
 }
 
-int comparaSubArvore(t_no_B *arvoreA_B, t_no_B *arvoreB) {
-    if (arvoreA_B == NULL || arvoreB == NULL)
-        return 1;
-    if (arvoreA_B->chave != arvoreB->chave)
-        return 0;
-    if (comparaSubArvore(arvoreA_B->esq, arvoreB->esq) 
-        && comparaSubArvore(arvoreA_B->dir, arvoreB->dir))
-        return 1;
-    return 0;
+void iniciaImpressao(t_no_A * arvoreA) {
+    printf("[\n");
+    imprimeArvore(arvoreA);
+    printf("]\n]\n");
 }
 
-void imprimeB(t_no_B *arvore) {
-    if (arvore == NULL) {
-        // printf("()");
+void imprimeArvore(t_no_A * arvoreA) {
+    printf("[");
+    if (arvoreA == NULL) {
         return;
     }
-    printf("(%d", arvore->chave);
-    imprimeB(arvore->esq);
-    imprimeB(arvore->dir);
-    printf(")");
+    imprimeB(arvoreA->chave_arvore);
+    printf(" : %d\n", valorIndexB(arvoreA->chave_arvore));
+    imprimeArvore(arvoreA->esq);
+    printf("]\n");
+    imprimeArvore(arvoreA->dir);
+    printf("]\n");
 }

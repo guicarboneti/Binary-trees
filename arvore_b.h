@@ -31,4 +31,14 @@ Calcula valor de indexação da árvore
 */
 int valorIndexB(t_no_B *arvore);
 
+/*
+Imprime árvore B.
+*/
+void imprimeB(t_no_B *arvore);
+
+/*
+Compara duas árvores B.
+*/
+int comparaSubArvore(t_no_B *arvoreA_B, t_no_B *arvoreB);
+
 #endif
