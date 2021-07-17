@@ -62,19 +62,3 @@ void imprimeB(t_no_B *arvore) {
     imprimeB(arvore->dir);
     printf(")");
 }
-
-int comparaSubArvore(t_no_B *arvoreA_B, t_no_B *arvoreB) {
-    if (arvoreA_B == NULL && arvoreB == NULL)
-        return 1;
-
-    if ( !(((arvoreA_B->dir == NULL && arvoreB->dir == NULL) && (arvoreA_B->esq == NULL && arvoreB->esq == NULL)) ||
-        ((arvoreA_B->dir != NULL && arvoreB->dir != NULL) && (arvoreA_B->esq != NULL && arvoreB->esq != NULL))) )
-        return 0;
-
-    if (arvoreA_B->chave != arvoreB->chave)
-        return 0;
-    if (comparaSubArvore(arvoreA_B->esq, arvoreB->esq) 
-        && comparaSubArvore(arvoreA_B->dir, arvoreB->dir))
-        return 1;
-    return 0;
-}

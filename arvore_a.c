@@ -33,21 +33,22 @@ t_no_A * inclusao(t_no_A * noA, t_no_B * noB) {
 int busca(t_no_A *arvoreA, t_no_B *arvoreB) {
     if (arvoreA == NULL)
         return 0;
+
+    /* Imprime árvore acessada */
     imprimeB(arvoreA->chave_arvore);
     printf(" : %d\n", valorIndexB(arvoreA->chave_arvore));
-    if (arvoreA->chave_arvore->chave == arvoreB->chave) {
-        if (comparaSubArvore(arvoreA->chave_arvore, arvoreB))
-            return 1;
-        else return 0;
+
+    if (valorIndexB(arvoreA->chave_arvore) == valorIndexB(arvoreB)) {
+        return 1;
     }
     else {
-        if (busca(arvoreA->esq, arvoreB))
-            return 1;
-        else if (busca(arvoreA->dir, arvoreB))
-            return 1;
-        else return 0;
+        if (valorIndexB(arvoreA->chave_arvore) > valorIndexB(arvoreB)) {
+            return busca(arvoreA->esq, arvoreB);
+        }
+        else {
+            return busca(arvoreA->dir, arvoreB);
+        }
     }
-    return 0;
 }
 
 void iniciaImpressao(t_no_A * arvoreA) {
