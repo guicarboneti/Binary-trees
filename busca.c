@@ -3,35 +3,72 @@
 #include "arvore_a.h"
 #include "arvore_b.h"
 #include <stdio.h>
+#include <string.h>
+
+#define MAX 15
 
 int main() {
-    char string[15] = "(1(0)(3(2)(10))";
-    char string2[15] = "(12(1))";
-    char string3[15] = "(12)";
     int i = 0;
-
-    t_no_B *arvoreB = montaArvoreB(string, &i);
-
-    i=0;
-    t_no_B *arvoreB2 = montaArvoreB(string2, &i);
-
-    i=0;
-    t_no_B *arvoreB3 = montaArvoreB(string3, &i);
-
+    int resultBusca;
+    char op;
+    char entrada[MAX];
+    t_no_B *arvoreB = NULL;
     t_no_A *arvoreA = NULL;
-    arvoreA = inclusao(arvoreA, arvoreB);
-    iniciaImpressao(arvoreA);
-    printf("\n");
 
-    arvoreA = inclusao(arvoreA, arvoreB2);
-    iniciaImpressao(arvoreA);
-    printf("\n");
+    printf("Insira o próximo comando:\n");
+    do {
+        /* Leitura da entrada até EOF */
+        op = fgetc(stdin);
+        if (feof(stdin)) {
+            break;
+        }
+        fgetc(stdin); /* Pula espaço */
+        fgets(entrada, MAX, stdin); /* Lê a string da árvore B */
+        entrada[strcspn (entrada, "\n")] = '\0' ; /* Remove \n do fim da string */
 
-    arvoreA = inclusao(arvoreA, arvoreB3);
-    iniciaImpressao(arvoreA);
-    printf("\n");
+        /* Monta a árvore B */
+        arvoreB = montaArvoreB(entrada, &i);
 
-    busca(arvoreA, arvoreB3);
+        /* Comandos */
+        switch(op) {
 
+            /* Inserção */
+            case 'i':
+                arvoreA = inclusao(arvoreA, arvoreB);
+                iniciaImpressao(arvoreA);
+                printf("\n");
+            break;
+
+            /* Busca */
+            case 'b':
+                resultBusca = busca(arvoreA, arvoreB);
+                if (resultBusca) {
+                    printf("Árvore equivalente encontrada.\n");
+                }
+                else {
+                    printf("Árvore equivalente não encontrada.\n");
+                }
+                printf("\n");
+            break;
+
+            /* Remoção */
+            case 'r':
+                /* Inserir função de remoção */
+                iniciaImpressao(arvoreA);
+                printf("\n");
+            break;
+
+            default:
+                printf("Comando desconhecido.\n");
+            break;
+
+        }
+
+        i = 0;
+        arvoreB = NULL;
+        printf("Insira o próximo comando:\n");
+
+    } while (1);
+    
     return 0;
 }
