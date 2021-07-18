@@ -28,7 +28,6 @@ int busca(t_no_A *arvoreA, t_no_B *arvoreB);
 /*
 Inicia impressão da árvore A. Encapsula a função de recursão que imprime a árvore A.
 */
-
 void iniciaImpressao(t_no_A * arvoreA);
 
 /*

@@ -20,17 +20,24 @@ t_no_B* montaArvoreB(char *str, int *i){
     
     if (str[*i] == '(') {
         (*i)++;
-        while ((str[*i] != ')') && (str[*i] != '(')) {
-            aux[j] = str[*i];
-            j++;
+        /* Nó nulo () */ 
+        if (str[*i] == ')') {
+            (*i)++;
+            return NULL;
+        }
+        else {
+            while ((str[*i] != ')') && (str[*i] != '(')) {
+                aux[j] = str[*i];
+                j++;
+                (*i)++;
+            }
+            no = iniciaB(atoi(aux));
+            no -> esq = montaArvoreB(str, i);
+            no -> dir = montaArvoreB(str, i);            
             (*i)++;
         }
-        no = iniciaB(atoi(aux));
-        no -> esq = montaArvoreB(str, i);
-        no -> dir = montaArvoreB(str, i);            
-        (*i)++;
     }
-    return no;        
+    return no;
 }
 
 void emOrdemB(t_no_B *arvore) {
@@ -54,11 +61,13 @@ int valorIndexB(t_no_B *arvore) {
 
 void imprimeB(t_no_B *arvore) {
     if (arvore == NULL) {
-        // printf("()");
+        printf("()");
         return;
     }
     printf("(%d", arvore->chave);
-    imprimeB(arvore->esq);
-    imprimeB(arvore->dir);
+    if (!((arvore->esq == NULL) && (arvore->dir == NULL))) {
+        imprimeB(arvore->esq);
+        imprimeB(arvore->dir);
+    }
     printf(")");
 }

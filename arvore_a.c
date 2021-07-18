@@ -64,8 +64,11 @@ void imprimeArvore(t_no_A * arvoreA) {
     }
     imprimeB(arvoreA->chave_arvore);
     printf(" : %d\n", valorIndexB(arvoreA->chave_arvore));
-    imprimeArvore(arvoreA->esq);
-    printf("]\n");
-    imprimeArvore(arvoreA->dir);
-    printf("]\n");
+
+    if (!((arvoreA->esq == NULL) && (arvoreA->dir == NULL))) {
+        imprimeArvore(arvoreA->esq);
+        printf("]\n");
+        imprimeArvore(arvoreA->dir);
+        printf("]\n");
+    }
 }
