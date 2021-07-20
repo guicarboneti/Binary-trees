@@ -35,6 +35,8 @@ Testa as condições em que um dos filhos do nó é nulo, se for o caso, utiliza
 No caso em que o nó possui ambos os filhos, calcula o sucessor do nó, ajusta os ponteiros do pai do sucessor, atribui os ponteiros do nó ao sucessor e ajusta os ponteiros do pai do nó.  
 Se o nó a ser deletado é a raiz, atribui ao sucessor a condição de nova raiz e deleta o nó.
 
+### Liberação da memória: liberaArvA e liberaArvB
+A função liberaArvA percorre a árvore A, e ao atingir um nó folha, libera sua arvore B indexada, por meio da função liberaArvB, e libera o nó.
 
 ## Aplicação principal: busca.c
 ### Função de leitura: main

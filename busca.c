@@ -69,6 +69,8 @@ int main() {
         printf("Insira o próximo comando:\n");
 
     } while (1);
-    
+
+    liberaArvA(arvoreA);
+
     return 0;
 }

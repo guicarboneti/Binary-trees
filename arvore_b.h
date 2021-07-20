@@ -36,4 +36,9 @@ Imprime árvore B.
 */
 void imprimeB(t_no_B *arvore);
 
+/*
+Libera a árvore B da memória
+*/
+void liberaArvB(t_no_B *no);
+
 #endif

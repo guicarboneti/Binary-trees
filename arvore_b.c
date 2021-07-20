@@ -71,3 +71,12 @@ void imprimeB(t_no_B *arvore) {
     }
     printf(")");
 }
+
+void liberaArvB(t_no_B *no) {
+    if (no->esq == NULL && no->dir == NULL)
+        free(no);
+    else {
+        liberaArvB(no->esq);
+        liberaArvB(no->dir);
+    }
+}

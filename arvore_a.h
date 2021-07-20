@@ -55,4 +55,9 @@ Exclui um nó da árvore binária. Retorna a raiz da árvore.
 */
 t_no_A* exclui (t_no_A *raiz, t_no_B *arvoreB);
 
+/*
+Libera a árvore A da memória
+*/
+void liberaArvA(t_no_A *no);
+
 #endif
