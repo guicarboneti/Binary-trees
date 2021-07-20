@@ -73,10 +73,10 @@ void imprimeB(t_no_B *arvore) {
 }
 
 void liberaArvB(t_no_B *no) {
-    if (no->esq == NULL && no->dir == NULL)
-        free(no);
-    else {
-        liberaArvB(no->esq);
-        liberaArvB(no->dir);
-    }
+    if (no == NULL)
+        return;
+
+    liberaArvB(no->esq);
+    liberaArvB(no->dir);
+    free(no);
 }

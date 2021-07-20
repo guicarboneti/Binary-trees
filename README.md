@@ -17,16 +17,16 @@ Calcula o valor de indexação da árvore B, percorrendo os nós e somando as ch
 ## Árvore A: arvore_a.h e arvore_a.c
 ### Inclusão: inclusao e criaNo
 A função de inclusão recebe uma árvore B e a inclui na árvore A.  
-Se a árvore A for vazia, é criado um nó raiz. Caso contrário, percorre-se a árvore A até encontrar um nó nulo em que a inclusão possa ser feita.  
+Se a árvore A for vazia, é criado um nó raiz. Caso contrário, percorre-se a árvore A até encontrar um nó nulo em que a inclusão possa ser feita. Esse  percurso é feito comparando os valores de indexação da árvore a ser incluída com os dos nós. Se o valor da árvore a ser incluída for menor que o do nó atual, chama-se a função usando o filho esquerdo como parâmetro. Caso contrário, usa-se o direito.  
 A criação do novo nó a ser incluído é feita na função criaNo.
 
 ### Busca: busca e buscaArvB
-A busca é feita com a comparação de valores de indexação. Além disso, são impressos os nós percorridos e seus valores de indexação.  
+A busca é feita com a comparação de valores de indexação. Se tiverem valores iguais, a busca é finalizada retornando valor 1. Se a árvore buscada tiver valor menor que a chave do nó atual, a função é chamada recursivamente tendo como parâmetro o filho esquerdo. Caso contrário, chama-se com o filho direito como parâmetro. Além disso, são impressos os nós percorridos e seus valores de indexação. Se é encontrado um nó nulo, a busca é finalizada retornando 0. 
 A função buscaArvB é similar à função busca, porém retorna um ponteiro para o nodo da árvore A que indexa a árvore B buscada.
 
 ### Impressão: iniciaImpressao e imprimeArvore
 A função iniciaImpressao encapsula e chama a função recursiva imprimeArvore.  
-A função imprimeArvore percorre os nós da árvore A e imprime suas chaves B e seus valores de indexação. Caso um nó seja nulo e seu irmão também, eles não são impressos.
+A função imprimeArvore percorre os nós da árvore A e imprime suas chaves B e seus valores de indexação. Os nós são impressos seguindo o modelo de colchetes aninhados. Caso um nó seja nulo e seu irmão também, eles não são impressos.
 
 ### Remoção: exclui, buscaArvB, ajustaNoPai, sucessor e min
 A remoção de um nodo usa a função buscaArvB para obter um ponteiro para o nodo que indexa a árvore B que se deseja deletar.  

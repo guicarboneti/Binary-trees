@@ -157,12 +157,12 @@ t_no_A* exclui (t_no_A *raiz, t_no_B *arvoreB) {
 }
 
 void liberaArvA(t_no_A *no) {
-    if (no->esq == NULL && no->dir == NULL) {
-        liberaArvB(no->chave_arvore);
-        free(no);
-    }
-    else {
-        liberaArvA(no->esq);
-        liberaArvA(no->dir);
-    }
+    if (no == NULL)
+        return;
+
+    liberaArvA(no->esq);
+    liberaArvA(no->dir);
+    
+    liberaArvB(no->chave_arvore);
+    free(no);
 }
