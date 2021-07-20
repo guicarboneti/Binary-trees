@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 15
+#define MAX 50
 
 int main() {
     int i = 0;
@@ -53,7 +53,7 @@ int main() {
 
             /* Remoção */
             case 'r':
-                /* Inserir função de remoção */
+                arvoreA = exclui(arvoreA, arvoreB);
                 iniciaImpressao(arvoreA);
                 printf("\n");
             break;

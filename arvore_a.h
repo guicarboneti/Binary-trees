@@ -35,4 +35,24 @@ Imprime descrição da árvore A recursivamente.
 */
 void imprimeArvore(t_no_A * arvoreA);
 
+/*
+Encontra o menor nó de uma subárvore passada como parâmetro.
+*/
+t_no_A *min(t_no_A *no);
+
+/*
+Encontra o nó sucessor de um determindo nó.
+*/
+t_no_A *sucessor (t_no_A *no);
+
+/*
+Ajusta o ponteiro pai da árvore binária.
+*/
+void ajustaNoPai(t_no_A *no, t_no_A *novo);
+
+/*
+Exclui um nó da árvore binária. Retorna a raiz da árvore.
+*/
+t_no_A* exclui (t_no_A *raiz, t_no_B *arvoreB);
+
 #endif

@@ -20,15 +20,21 @@ A função de inclusão recebe uma árvore B e a inclui na árvore A.
 Se a árvore A for vazia, é criado um nó raiz. Caso contrário, percorre-se a árvore A até encontrar um nó nulo em que a inclusão possa ser feita.  
 A criação do novo nó a ser incluído é feita na função criaNo.
 
-### Busca: busca
-A busca é feita com a comparação de valores de indexação. Além disso, são impressos os nós percorridos e seus valores de indexação.
+### Busca: busca e buscaArvB
+A busca é feita com a comparação de valores de indexação. Além disso, são impressos os nós percorridos e seus valores de indexação.  
+A função buscaArvB é similar à função busca, porém retorna um ponteiro para o nodo da árvore A que indexa a árvore B buscada.
 
 ### Impressão: iniciaImpressao e imprimeArvore
 A função iniciaImpressao encapsula e chama a função recursiva imprimeArvore.  
 A função imprimeArvore percorre os nós da árvore A e imprime suas chaves B e seus valores de indexação. Caso um nó seja nulo e seu irmão também, eles não são impressos.
 
-### Remoção: Placeholder
-placeholder
+### Remoção: exclui, buscaArvB, ajustaNoPai, sucessor e min
+A remoção de um nodo usa a função buscaArvB para obter um ponteiro para o nodo que indexa a árvore B que se deseja deletar.  
+Testa a condição em que se quer remover um nó raiz sem filhos e anula a árvore A se for o caso.  
+Testa as condições em que um dos filhos do nó é nulo, se for o caso, utiliza a função ajustaPai para ajustar o ponteiro pai do nó e o remove.  
+No caso em que o nó possui ambos os filhos, calcula o sucessor do nó, ajusta os ponteiros do pai do sucessor, atribui os ponteiros do nó ao sucessor e ajusta os ponteiros do pai do nó.  
+Se o nó a ser deletado é a raiz, atribui ao sucessor a condição de nova raiz e deleta o nó.
+
 
 ## Aplicação principal: busca.c
 ### Função de leitura: main
