@@ -1,45 +1,36 @@
-# Trabalho árvores binárias
-## Autores: Guilherme Carbonari Boneti e Leon Augusto Okida Gonçalves
+# About
+This is a C program that consists in a series of routines that manipulate a binary tree.
+It was developed as an assingment for the Algorithms and Data Structures III (CI1057) course of the Federal University of Paraná (UFPR).
 
-## Árvore B: arvore_b.h e arvore_b.c
-### Leitura: iniciaB e montaArvoreB
-São as funções que montam a árvore B a partir da string recebida.  
-A função montaArvoreB trata a string recebida e a iniciaB cria o nó.  
-O if() presente no código da função montaArvoreB trata os casos de nós vazios e o while serve para ler os caracteres que serão a chave do nó.
+# Data Structure used
+There are two main data structures used in this project.  
+The first one is the Type B Binary Tree, which is a simple binary tree, processed from an input string (written in nested parentheses).  
+The second one is the Type A Binary Tree, which is a Binary Search Tree whose nodes are Type B trees and are sorted by their index values. Each index value is calculated by summing all the values inside the Type B tree.
 
-### Impressão: emOrdemB e imprimeB
-A função emOrdemB faz a impressão em ordem da árvore B. A função imprimeB imprime a árvore B em formato de parêntesis.  
-Na imprimeB, caso um nó seja nulo e seu irmão também, eles não são impressos.
+# How to run the program
+To run it, execute the following commands inside the project directory:
+```bash
+$ make
+$ ./busca
+```
 
-### Outros: valorIndexB
-Calcula o valor de indexação da árvore B, percorrendo os nós e somando as chaves.
+# Routines
+To add a new node, use the command *i*:
+```bash
+i (10(8)(30))
+```
+To search a node, use the command *b* (it will search a node that has the same index value, note that the Type B tree found might be different):
+```bash
+b (25(10(5)())())
+```
 
-## Árvore A: arvore_a.h e arvore_a.c
-### Inclusão: inclusao e criaNo
-A função de inclusão recebe uma árvore B e a inclui na árvore A.  
-Se a árvore A for vazia, é criado um nó raiz. Caso contrário, percorre-se a árvore A até encontrar um nó nulo em que a inclusão possa ser feita. Esse  percurso é feito comparando os valores de indexação da árvore a ser incluída com os dos nós. Se o valor da árvore a ser incluída for menor que o do nó atual, chama-se a função usando o filho esquerdo como parâmetro. Caso contrário, usa-se o direito.  
-A criação do novo nó a ser incluído é feita na função criaNo.
+To remove a node, use the command *r* (it will remove a node that has the same index value, note that the Type B tree removed might be different):
+```bash
+r (11(10)(17))
+```
 
-### Busca: busca e buscaArvB
-A busca é feita com a comparação de valores de indexação. Se tiverem valores iguais, a busca é finalizada retornando valor 1. Se a árvore buscada tiver valor menor que a chave do nó atual, a função é chamada recursivamente tendo como parâmetro o filho esquerdo. Caso contrário, chama-se com o filho direito como parâmetro. Além disso, são impressos os nós percorridos e seus valores de indexação. Se é encontrado um nó nulo, a busca é finalizada retornando 0. 
-A função buscaArvB é similar à função busca, porém retorna um ponteiro para o nodo da árvore A que indexa a árvore B buscada.
+# Ending the program
+To end the program, simply press Ctrl+D.
 
-### Impressão: iniciaImpressao e imprimeArvore
-A função iniciaImpressao encapsula e chama a função recursiva imprimeArvore.  
-A função imprimeArvore percorre os nós da árvore A e imprime suas chaves B e seus valores de indexação. Os nós são impressos seguindo o modelo de colchetes aninhados. Caso um nó seja nulo e seu irmão também, eles não são impressos.
-
-### Remoção: exclui, buscaArvB, ajustaNoPai, sucessor e min
-A remoção de um nodo usa a função buscaArvB para obter um ponteiro para o nodo que indexa a árvore B que se deseja deletar.  
-Testa a condição em que se quer remover um nó raiz sem filhos e anula a árvore A se for o caso.  
-Testa as condições em que um dos filhos do nó é nulo, se for o caso, utiliza a função ajustaPai para ajustar o ponteiro pai do nó e o remove.  
-No caso em que o nó possui ambos os filhos, calcula o sucessor do nó, ajusta os ponteiros do pai do sucessor, atribui os ponteiros do nó ao sucessor e ajusta os ponteiros do pai do nó.  
-Se o nó a ser deletado é a raiz, atribui ao sucessor a condição de nova raiz e deleta o nó.
-
-### Liberação da memória: liberaArvA e liberaArvB
-A função liberaArvA percorre a árvore A, e ao atingir um nó folha, libera sua arvore B indexada, por meio da função liberaArvB, e libera o nó.
-
-## Aplicação principal: busca.c
-### Função de leitura: main
-É iniciado um loop que para somente quando é lido um EOF.  
-Usa-se o fgetc para ler o comando e o fgets para ler o parâmetro. O tamanho máximo do parâmetro é definido pela constante MAX, no cabeçalho do arquivo.  
-O switch controla a decisão a ser tomada a partir do comando lido.
+# Authors
+This project was developed by [@leonokida](https://github.com/leonokida) and [@guicarboneti](https://github.com/guicarboneti).
